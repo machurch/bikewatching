@@ -96,13 +96,6 @@
 
                     // Append circles to the SVG for each station
                     const circles = svg.selectAll('circle')
-
-                        .each(function(d) {
-                            // Add <title> for browser tooltips
-                            d3.select(this)
-                            .append('title')
-                            .text(`${d.totalTraffic} trips (${d.departures} departures, ${d.arrivals} arrivals)`);
-                        })
                         .data(stations)
                         .enter()
                         .append('circle')
@@ -110,7 +103,13 @@
                         .attr('fill', '#2E5077')  // Circle fill color
                         .attr('stroke', 'white')  // Circle border color
                         .attr('stroke-width', 1)  // Circle border thickness
-                        .attr('opacity', 0.4);  // Circle opacity
+                        .attr('opacity', 0.4)  // Circle opacity
+                        .each(function(d) {
+                            // Add <title> for browser tooltips
+                            d3.select(this)
+                            .append('title')
+                            .text(`${d.totalTraffic} trips (${d.departures} departures, ${d.arrivals} arrivals)`);
+                        });
 
                     // Function to update circle positions when the map moves/zooms
                     function updatePositions() {
