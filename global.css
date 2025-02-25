@@ -36,3 +36,53 @@ html, body {
       pointer-events: auto;
     }
   }
+
+/* header {
+  display: flex;
+  gap: 1em;
+  align-items: baseline;
+  margin-left: auto;
+  padding: 0.5em;
+  time {
+    display: block;
+  }
+  em {
+    display: block;
+    color: grey;
+  }
+}
+
+h1 {
+  margin-top: 1em;
+  padding: 0.5em;
+} */
+
+header {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  margin-left: auto;
+  padding: 0.5em;
+}
+
+.time-container {
+  display: block; /* Ensures all children inside appear on separate lines */
+}
+
+#time-slider {
+  display: block;
+  margin-bottom: 0.5em; /* Space between slider and (any time) */
+}
+
+#any-time {
+  display: block;
+  color: grey;
+  margin-bottom: 0.25em; /* Space between (any time) and actual time */
+}
+
+#selected-time {
+  display: block;
+  font-weight: bold; /* Makes the actual time stand out */
+}
+
+
