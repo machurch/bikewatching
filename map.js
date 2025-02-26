@@ -97,6 +97,7 @@
       
               // Append circles to the SVG for each station
               let stationFlow = d3.scaleQuantize().domain([0, 1]).range([0, 0.5, 1]);
+              console.log(stations);
 
               const circles = svg
                   .selectAll('circle')
@@ -112,9 +113,11 @@
                   .style("--departure-ratio", d => stationFlow(d.departures / d.totalTraffic))
                   .each(function(d) {
                   // Add <title> for browser tooltips
+                      console.log(d.departures);
                       d3.select(this)
                         .append('title')
                         .text(`${d.totalTraffic} trips (${d.departures} departures, ${d.arrivals} arrivals)`);
+                        console.log(d.totalTraffic);
                   });
       
               // Function to update circle positions when the map moves/zooms
@@ -159,17 +162,6 @@
           
               function updateScatterPlot(timeFilter) {
                   // // Get only the trips that match the selected time filter
-                  
-                  // // Recompute station traffic based on the filtered trips
-                  // const filteredStations = computeStationTraffic(stations, timeFilter);
-      
-                  // timeFilter === -1 ? radiusScale.range([0, 25]) : radiusScale.range([3, 50]);
-                          
-                  // // Update the scatterplot by adjusting the radius of circles
-                  // circles
-                  //   .data(filteredStations, (d) => d.short_name)
-                  //   .join('circle') // Ensure the data is bound correctly
-                  //   .attr('r', (d) => radiusScale(d.totalTraffic)); // Update circle sizes
                   const filteredStations = computeStationTraffic(stations, timeFilter);
 
                   // Recalculate the radius scale domain based on filtered traffic data

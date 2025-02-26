@@ -1,97 +1,70 @@
 body {
-    font: 100%/1.5 system-ui, sans-serif;
-    display: flex;
-    flex-flow: column;
-    max-width: 80em;
-    min-height: 100vh;
-    box-sizing: border-box;
-    margin: auto;
-    padding: 1em;
-  }
-
-html, body {
-    margin: 0;
-    padding: 5;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center;     /* Center vertically */
-  }
-     
-  #map {
-    width: 100%;    /* Adjust width to your desired size */
-    height: 100%;   /* Adjust height to your desired size */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for effect */
-    border-radius: 8px; /* Optional: rounded corners */
-  }
-
-  #circles {
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    circle {
-      pointer-events: auto;
-      --color-departures: steelblue;
-      --color-arrivals: darkorange;
-      --color: color-mix(
-        in oklch,
-        var(--color-departures) calc(100% * var(--departure-ratio)),
-        var(--color-arrivals)
-      );
-      fill: var(--color);
-    }
-  }
-  
-
-/* header {
+  font: 100%/1.5 system-ui, sans-serif;
   display: flex;
-  gap: 1em;
-  align-items: baseline;
-  margin-left: auto;
-  padding: 0.5em;
-  time {
-    display: block;
-  }
-  em {
-    display: block;
-    color: grey;
-  }
+  flex-flow: column;
+  max-width: 80em;
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 1em;
 }
 
-h1 {
-  margin-top: 1em;
-  padding: 0.5em;
-} */
+#circles {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  circle {
+    pointer-events: auto;
+    --color-departures: steelblue;
+    --color-arrivals: darkorange;
+    --color: color-mix(
+      in oklch,
+      var(--color-departures) calc(100% * var(--departure-ratio)),
+      var(--color-arrivals)
+    );
+    fill: var(--color);
+  }
+}
 
 header {
   display: flex;
-  gap: 1em;
+  justify-content: space-between;
   align-items: center;
-  margin-left: auto;
-  padding: 0.5em;
+  padding-top: 2em;
+  width: 100%;
+}
+
+h1 {
+  margin-right: 18em; /* Adds space between the title and slider */
 }
 
 .time-container {
-  display: block; /* Ensures all children inside appear on separate lines */
+  display: block;
+  width: 100%;
+}
+
+.time-slider-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5em; /* Space between label and slider */
 }
 
 #time-slider {
-  display: block;
-  margin-bottom: 0.5em; /* Space between slider and (any time) */
+  flex-grow: 1; /* Expands the slider */
+  width: 300px; /* Adjust as needed */
+  max-width: 100%; /* Prevents overflow */
 }
 
 #any-time {
-  display: block;
   color: grey;
-  margin-bottom: 0.25em; /* Space between (any time) and actual time */
+  margin-bottom: 0em; /* Space between (any time) and actual time */
 }
 
 #selected-time {
-  display: block;
-  font-weight: bold; /* Makes the actual time stand out */
+  font-weight: bold;
 }
+
 
 

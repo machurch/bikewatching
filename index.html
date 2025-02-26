@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bikewatching</title>
   <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="map.css">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <!-- Load Mapbox GL JS -->
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
@@ -13,15 +14,27 @@
 </head>
 <body>
   <!-- <h1>Bikewatching</h1> -->
-  <header>
+  <!-- <header>
+    <h1>Bikewatching</h1>
     <div class="time-container">
-      <h1>Bikewatching</h1>
       <label for="time-slider">Time of Day:</label>
       <input type="range" id="time-slider" min="-1" max="1440" step="1" />
       <em id="any-time">(any time)</em>
       <time id="selected-time">11:59</time>
     </div>
+  </header> -->
+  <header>
+    <h1>Bikewatching</h1>
+    <div class="time-container">
+      <div class="time-slider-wrapper">
+        <label for="time-slider">Time of Day:</label>
+        <input type="range" id="time-slider" min="-1" max="1440" step="1" />
+      </div>
+      <em id="any-time">(any time)</em>
+      <time id="selected-time">11:59</time>
+    </div>
   </header>
+
   <div id="map">
     <svg id = 'circles'></svg>
   </div>
