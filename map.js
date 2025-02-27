@@ -113,11 +113,11 @@
                   .style("--departure-ratio", d => stationFlow(d.departures / d.totalTraffic))
                   .each(function(d) {
                   // Add <title> for browser tooltips
-                      console.log(d.departures);
+                      // console.log(d.totalTraffic);
                       d3.select(this)
                         .append('title')
                         .text(`${d.totalTraffic} trips (${d.departures} departures, ${d.arrivals} arrivals)`);
-                        console.log(d.totalTraffic);
+                        // console.log(d.totalTraffic);
                   });
       
               // Function to update circle positions when the map moves/zooms
@@ -176,7 +176,15 @@
                       stationFlow(d.departures / d.totalTraffic),)
                     .attr("r", (d) => {
                         return radiusScale(d.totalTraffic);
+                    })
+                    .each(function (d) {
+                      d3.select(this)
+                        .select("title")
+                        .text(`${d.totalTraffic} trips (${d.departures} departures, ${d.arrivals} arrivals)`);
                     });
+                
+                  // Debugging: Check tooltips
+                  console.log("Updated Stations:", filteredStations);
                 }
                       
                 function computeStationTraffic(stations, timeFilter = -1) {
@@ -193,8 +201,8 @@
                     (v) => v.length,
                     (d) => d.end_station_id
                   );
-                  // console.log('Filtered departures:', filterByMinute(departuresByMinute, timeFilter));
-                  // console.log('Filtered arrivals:', filterByMinute(arrivalsByMinute, timeFilter));
+                  console.log('Filtered departures:', departures);
+                  console.log('Filtered arrivals:', arrivals);
                   // console.log('departures rollup:', departures);
                   // console.log('arrivals rollup:', arrivals);
                       
