@@ -23,7 +23,7 @@ html, body {
     height: 100%;
     top: 0;
     left: 0;
-    pointer-events: auto;
+    pointer-events: none;
     circle {
       pointer-events: auto;
       --color-departures: steelblue;
